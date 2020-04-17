@@ -1,0 +1,12 @@
+update gvi010 set gvi_cdoper='REC.MERC.CONSUMO' where gvi_cdoper='0000000000000001';
+update gvi010 set gvi_cdoper='REC.MAT.PRIMA' where gvi_cdoper='0000000000000002';
+update gvi010 set gvi_cdoper='REC.GRAO COMER' where gvi_cdoper='0000000000000003';
+update gvi010 set gvi_cdoper='REC.TERCEIROS' where gvi_cdoper='0000000000000004';
+update gvi010 set gvi_cdoper='EXP.SEMENTES' where gvi_cdoper='0000000000000005';
+update gvi010 set gvi_cdoper='DEV. VENDAS' where gvi_cdoper='0000000000000006';
+update gvi010 set gvi_cdoper='PREST.SERV.BENEF' where gvi_cdoper='0000000000000007';
+update gvi010 set gvi_cdoper='PREST.SERV.ARMAZ' where gvi_cdoper='0000000000000008';
+update gvi010 set gvi_cdoper='SAIDA GRAO COMER' where gvi_cdoper='0000000000000009';
+update gvi010 set gvi_cdoper='REC.SEMENTES ADT' where gvi_cdoper='0000000000000010';
+update gvi010 set gvi_cdoper='RET.PA TERCEIROS' where gvi_cdoper='0000000000000011';
+update gvi010 set gvi_cdoper='DESCARTE' where gvi_cdoper='0000000000000012';

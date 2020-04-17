@@ -1,0 +1,2 @@
+select NJP_QTDFCO,NJP_QTDFIS,a.* from njp010 a where njp_codctr='001504' and njp_codter='02914460' and NJP_ITEM='005' and NJP_LOJTER='01';
+update njp010 set NJP_QTDFCO=0,NJP_QTDFIS=0 where njp_codctr='001504' and njp_codter='02914460' and NJP_ITEM='005' and NJP_LOJTER='01';

@@ -1,0 +1,15 @@
+SELECT p.esta_ped, P.* FROM PEDIDO P WHERE p.pedi_ped=6793 AND p.codi_emp=5;
+UPDATE PEDIDO P SET P.ESTA_PED=1 WHERE p.pedi_ped=6793 AND p.codi_emp=5;
+
+SELECT I.CODI_PRV,I.* FROM IPEDIDO I WHERE i.codi_emp=5 AND i.pedi_ped=6793 AND i.codi_psv='03020050';
+UPDATE IPEDIDO I SET i.qper_ipe=0, i.cons_ipe=NULL, i.codi_prv=NULL WHERE i.codi_emp=5 AND i.pedi_ped=6793 AND i.codi_psv='03020050';
+
+SELECT * FROM ocorrencias O WHERE o.pedi_ped=6793;
+--==Gera o backup como insert primeiro, antes de deletar do banco
+REM INSERTING into OCORRENCIAS
+SET DEFINE OFF;
+Insert into OCORRENCIAS (CODI_EMP,PEDI_PED,SERI_PED,CODI_PSV,DATA_OCO,QTDE_OCO,CODI_PRV,CONS_OCO,CODI_PES,DUMANUT,DINSERT,DTSYNCAPI,DATAULTIMASINCRONIZACAOAPI) values ('5','6793','2','03020050',to_timestamp('13/03/20 10:12:37,000000000','DD/MM/RR HH24:MI:SSXFF'),'30','10000002','GERAR RELATORIO DE CONTAS A RECEBER, CANCELAR APOS EMISSÃO DO MESMO.','11000282',to_timestamp('13/03/20 10:08:04,956720000','DD/MM/RR HH24:MI:SSXFF'),to_timestamp('13/03/20 10:08:04,956680000','DD/MM/RR HH24:MI:SSXFF'),null,null);
+--10000002
+
+--Deleta a ocorrencia do banco
+DELETE FROM ocorrencias O WHERE o.pedi_ped=6793;

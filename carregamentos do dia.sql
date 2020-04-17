@@ -1,0 +1,7 @@
+SELECT *  FROM NJ6010 NJ6
+WHERE NJ6.NJ6_FILIAL='0301' AND TOTVSLG_DATA(NJ6.NJ6_USERGI)='21/09/2017'  
+AND NJ6.D_E_L_E_T_=' ' ;
+
+select max(dak_cod) from dak010 where dak_filial='0301';
+
+SELECT * FROM GX1010;

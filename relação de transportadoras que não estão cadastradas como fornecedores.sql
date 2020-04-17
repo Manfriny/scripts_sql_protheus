@@ -1,0 +1,2 @@
+select * from sa4010 WHERE A4_CGC NOT IN (SELECT A2_CGC FROM SA2010) AND D_E_L_E_T_=' ' and A4_TPTRANS<>'3';
+

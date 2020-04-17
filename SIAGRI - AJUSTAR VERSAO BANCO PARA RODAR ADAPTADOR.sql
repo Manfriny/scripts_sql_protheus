@@ -1,0 +1,2 @@
+select * from treino.config;
+update treino.config set VERS_CFG='3.12.2.8'; --COLOCAR UMA BUILD ANTES DA DESEJADA, OU SEJA, UMA BUILD ANTES DA VERSÃO DOS EXECUTAVEIS DA PASTA BIN
