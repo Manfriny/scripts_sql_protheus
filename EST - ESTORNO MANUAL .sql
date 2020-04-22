@@ -19,18 +19,18 @@ select a.d_e_l_e_t_,a.r_e_c_n_o_,a.* from sbf010 a where bf_filial='0301' and a.
 
 
 --CONSULTA PELO NUMERO SEQUENCIAL 
-select sd3.d_e_l_e_t_,sd3.r_e_c_n_o_,sd3.d3_estorno,sd3.d3_cod,sd3.d3_local,sd3.d3_lotectl,sd3.* from sd3010 sd3 where sd3.d3_numseq='99HZLM';
-update sd3010 sd3 set sd3.d_e_l_e_t_='*',sd3.r_e_c_d_e_l_=sd3.r_e_c_n_o_ where sd3.d3_numseq='99HZLM';
-select sd5.d_e_l_e_t_,sd5.r_e_c_n_o_,sd5.d5_estorno,sd5.d5_produto,sd5.d5_local,sd5.d5_lotectl,sd5.* from sd5010 sd5 where sd5.d5_numseq='99HZLM';
-update sd5010 sd5 set sd5.d_e_l_e_t_='*'  where sd5.d5_numseq='99HZLM';
-select sdb.d_e_l_e_t_,sdb.r_e_c_n_o_,sdb.db_estorno,sdb.db_produto,sdb.db_local,sdb.db_lotectl,sdb.* from sdb010 sdb where sdb.db_numseq='99HZLM';
-update sdb010 sdb set sdb.d_e_l_e_t_='*' where sdb.db_numseq='99HZLM';
-select sda.d_e_l_e_t_,sda.r_e_c_n_o_,sda.da_produto,sda.da_local,sda.da_lotectl,sda.* from sda010 sda where sda.da_numseq='99HZLM';
-update sda010 sda set sda.d_e_l_e_t_='*' where sda.da_numseq='99HZLM';
+select sd3.d_e_l_e_t_,sd3.r_e_c_n_o_,sd3.d3_estorno,sd3.d3_cod,sd3.d3_local,sd3.d3_lotectl,sd3.* from sd3010 sd3 where sd3.d3_numseq='99JYQI';
+update sd3010 sd3 set sd3.d_e_l_e_t_='*',sd3.r_e_c_d_e_l_=sd3.r_e_c_n_o_ where sd3.d3_numseq='99JYQI';
+select sd5.d_e_l_e_t_,sd5.r_e_c_n_o_,sd5.d5_estorno,sd5.d5_produto,sd5.d5_local,sd5.d5_lotectl,sd5.* from sd5010 sd5 where sd5.d5_numseq='99JYQI';
+update sd5010 sd5 set sd5.d_e_l_e_t_='*'  where sd5.d5_numseq='99JYQI';
+select sdb.d_e_l_e_t_,sdb.r_e_c_n_o_,sdb.db_estorno,sdb.db_produto,sdb.db_local,sdb.db_lotectl,sdb.* from sdb010 sdb where sdb.db_numseq='99JYQI';
+update sdb010 sdb set sdb.d_e_l_e_t_='*' where sdb.db_numseq='99JYQI';
+select sda.d_e_l_e_t_,sda.r_e_c_n_o_,sda.da_produto,sda.da_local,sda.da_lotectl,sda.* from sda010 sda where sda.da_numseq='99JYQI';
+update sda010 sda set sda.d_e_l_e_t_='*' where sda.da_numseq='99JYQI';
 
 --TABELA DE LANÇAMENTO DE PERDAS
-select d_e_l_e_t_,bc_locorig,a.* from sbc010 a where BC_SEQSD3 in ('99HK4S', '99HKMN', '99HZLM', '99IT2Z', '99J53G', '99IQL5');
-update sbc010 set d_e_l_e_t_='*' where BC_SEQSD3 in ('99HK4S','99HKMN','99HZLM','99IT2Z','99J53G','99IQL5');
+select d_e_l_e_t_,bc_locorig,a.* from sbc010 a where BC_SEQSD3 in ('99JYQI', '99KHM2', '99K3O9', '99KHDO', '99KHGA', '99KHLA', '99K1ES', '99JCJZ', '99JCKQ', '99KHAX', '99KHIM', '99JDIB', '99KHRM');
+update sbc010 set d_e_l_e_t_='*' where BC_SEQSD3 in ('99JYQI', '99KHM2', '99K3O9', '99KHDO', '99KHGA', '99KHLA', '99K1ES', '99JCJZ', '99JCKQ', '99KHAX', '99KHIM', '99JDIB', '99KHRM');
 
 --
 select r_e_c_n_o_,a.* from sbj010 a where bj_filial='0301' and bj_cod='010300087' and bj_local='25' and bj_lotectl='DP1654762519' order by bj_data desc;

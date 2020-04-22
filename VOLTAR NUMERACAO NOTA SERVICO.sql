@@ -1,6 +1,6 @@
-define Filial = '0301';
-define DocIni = '000110';
-define DocFim = '000708';
+define Filial = '0401';
+define DocIni = '000742';
+define DocFim = '000744';
 define Serie  = 'U';
 
 --verificar se existem notas na frente
