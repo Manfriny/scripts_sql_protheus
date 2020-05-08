@@ -29,8 +29,8 @@ select sda.d_e_l_e_t_,sda.r_e_c_n_o_,sda.da_produto,sda.da_local,sda.da_lotectl,
 update sda010 sda set sda.d_e_l_e_t_='*' where sda.da_numseq='99JYQI';
 
 --TABELA DE LANÇAMENTO DE PERDAS
-select d_e_l_e_t_,bc_locorig,a.* from sbc010 a where BC_SEQSD3 in ('99JYQI', '99KHM2', '99K3O9', '99KHDO', '99KHGA', '99KHLA', '99K1ES', '99JCJZ', '99JCKQ', '99KHAX', '99KHIM', '99JDIB', '99KHRM');
-update sbc010 set d_e_l_e_t_='*' where BC_SEQSD3 in ('99JYQI', '99KHM2', '99K3O9', '99KHDO', '99KHGA', '99KHLA', '99K1ES', '99JCJZ', '99JCKQ', '99KHAX', '99KHIM', '99JDIB', '99KHRM');
+select d_e_l_e_t_,bc_locorig,a.* from sbc010 a where BC_SEQSD3 in ('99L8YH', '99L4LK', '99L477', '99L58U', '99L47X', '99L47Z', '99L8OA', '99L49J', '99L4A9');
+update sbc010 set d_e_l_e_t_='*' where BC_SEQSD3 in ('99L8YH', '99L4LK', '99L477', '99L58U', '99L47X', '99L47Z', '99L8OA', '99L49J', '99L4A9');
 
 --
 select r_e_c_n_o_,a.* from sbj010 a where bj_filial='0301' and bj_cod='010300087' and bj_local='25' and bj_lotectl='DP1654762519' order by bj_data desc;

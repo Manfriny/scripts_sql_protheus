@@ -1,15 +1,15 @@
 --==================== ENTIDADES ====================
 --000001-0301 / 000013-0302 / 000040-0303 / 000002-0401 / 000004-0402
 
-define f1filial='0303';
-define f1doc= '000032';
-define f1serie='3';
-define f1ent = '000040';
+define f1filial='0402';
+define f1doc= '040375';
+define f1serie='1';
+define f1ent = '000004';
 
-define f2filial='0303';
-define f2doc= '000265';
-define f2serie='3';
-define f2ent = '000001';
+define f2filial='0402';
+define f2doc= '040375';
+define f2serie='1';
+define f2ent = '000004';
 --000011/0 entrada
 --==================== ENTRADA ====================
 select f1.d_e_l_e_t_,f1.f1_doc,f1.f1_chvnfe,f1.f1_especie,f1.* from sf1010 f1 where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';

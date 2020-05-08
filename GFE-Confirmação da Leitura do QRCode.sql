@@ -18,13 +18,13 @@ nj6.NJ6_QTDE,
                 AND ZS8.ZS8_LOCAL=nj6.NJ6_LOCAL) as ZS8_QTDE 						
                 
 from NJ6010 nj6 										
-WHERE nj6.D_E_L_E_T_ =' ' AND nj6.NJ6_CODCAR='005226' and nj6.NJ6_SEQCAR='01'; 
+WHERE nj6.D_E_L_E_T_ =' ' AND nj6.NJ6_CODCAR='010178' and nj6.NJ6_SEQCAR='01'; 
 
-select * from nj6010 nj6 where nj6.D_E_L_E_T_ =' ' AND nj6.NJ6_CODCAR='003967';
-select * from zs8010 where ZS8_ORDEMC='00522601' and ZS8_PEDIDO='178844' and D_E_L_E_T_=' ';
+select * from nj6010 nj6 where nj6.D_E_L_E_T_ =' ' AND nj6.NJ6_CODCAR='010178';
+select * from zs8010 where ZS8_ORDEMC='010178' and ZS8_PEDIDO='178844' and D_E_L_E_T_=' ';
 
 select * from NJ6010 where NJ6_CODCAR='005226' and NJ6_SEQCAR='01' and D_E_L_E_T_=' '; 
-select * from ZS8010 where ZS8_ORDEMC='00522601' and ZS8_PEDIDO='178844' and D_E_L_E_T_=' ';
+select * from ZS8010 where ZS8_ORDEMC='00023583' and ZS8_PEDIDO='197487' and D_E_L_E_T_=' ';
 --update ZS8010 set D_E_L_E_T_='*' where ZS8_ORDEMC='00522601' and ZS8_PEDIDO='178844' and D_E_L_E_T_=' ';
 
 select * from GWV010 where GWV_NRMOV = '00017096';

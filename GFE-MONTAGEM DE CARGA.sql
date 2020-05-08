@@ -1,7 +1,7 @@
-define filial = '0401';
-define pedido = '033080';
-define carga = '003265';
-define numMov = '00020017';
+define fiarlial = '0301';
+define pedido = '197487';
+define cga = '010177';
+define numMov = '00023582';
 
 --PEDIDO DA CARGA
 select a.c5_tiplib,C5_CLIENT,a.* from sc5010 a where c5_filial='&filial' and c5_num='&pedido' and D_E_L_E_T_=' ';
@@ -31,6 +31,11 @@ select d_e_l_e_t_,a.* from NJ5010 a where NJ5_FILIAL='&filial' and NJ5_NUMPV='&p
 select * from njj010;
 
 --MOVIMENTO DO GFE EH GRAVADO NA GWV 
-select d_e_l_e_t_,a.* from gwv010 a where gwv_filial='&filial' and gwv_nrmov='&numMov';
+select d_e_l_e_t_,GWV_NRROM,a.* from gwv010 a where gwv_filial='&filial' and gwv_nrmov='&numMov';
 update gwv010 set d_e_l_e_t_='*',R_E_C_D_E_L_=r_e_c_n_o_ where gwv_filial='&filial' and gwv_nrmov='&numMov';
 update gwv010 set d_e_l_e_t_=' ',R_E_C_D_E_L_=0 where gwv_filial='&filial' and gwv_nrmov='&numMov';
+
+update gwv010 set GWV_NRROM=' ' where gwv_filial='&filial' and gwv_nrmov='&numMov';
+
+select d_e_l_e_t_,a.* from NJS010 a where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002' and a.d_e_l_e_t_=' ';
+update NJS010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002';
