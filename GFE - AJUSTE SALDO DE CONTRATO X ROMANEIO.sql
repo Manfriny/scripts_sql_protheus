@@ -1,11 +1,11 @@
 --verifico o romaneio
-select njj_codctr,a.* from njj010 a where njj_filial='0401' and njj_codrom like '%24948%' and d_e_l_e_t_=' ';
+select njj_codctr,a.* from njj010 a where njj_filial='0401' and njj_codrom like '%26911%' and d_e_l_e_t_=' ';
 
 --verifico a autorização do contrato
-select njp_qtdfco,njp_qtdfis,a.* from njp010 a where njp_filial='0302' and njp_codctr='000490' and njp_item='002' and d_e_l_e_t_=' ';
+select njp_qtdfco,njp_qtdfis,a.* from njp010 a where njp_filial='0402' and njp_codctr='001530' and njp_item='001' and d_e_l_e_t_=' ';
 
 --Ajusto a Qtd Fisica e o Qtd Saldo Aut conforme quant correta informada pela Comercialização
-update njp010 set njp_qtdfco=(njp_qtdfco-137730),njp_qtdfis=(njp_qtdfis-137730) where njp_filial='0302' and njp_codctr='000490' and njp_item='002' and d_e_l_e_t_=' ';
+update njp010 set njp_qtdfco=(njp_qtdfco-40270),njp_qtdfis=(njp_qtdfis-40270) where njp_filial='0402' and njp_codctr='001530' and njp_item='001' and d_e_l_e_t_=' ';
 
 
 
