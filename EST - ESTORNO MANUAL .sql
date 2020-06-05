@@ -1,4 +1,4 @@
-select B2_QACLASS,a.* from sb2010 a where b2_filial='0301' and b2_cod='040300058' and b2_local='43';
+select B2_QACLASS,a.* from sb2010 a where b2_filial='0301' and b2_cod='010800181' and b2_local='43';
 update sb2010 set B2_QACLASS=0 where b2_cod='040300058' and b2_local='43';
 select sd3.d_e_l_e_t_,sd3.r_e_c_n_o_,sd3.d3_estorno,sd3.d3_cod,sd3.d3_local,sd3.d3_lotectl,sd3.* from sd3010 sd3 where sd3.d3_filial='0401' and sd3.d3_cod='012500268' and sd3.d3_local='26' and sd3.d3_lotectl='UFM01333'; and sd3.d3_numseq='99EYFS';
 --update sd3010 sd3 set sd3.d3_estorno='S' where sd3.r_e_c_n_o_=634765;

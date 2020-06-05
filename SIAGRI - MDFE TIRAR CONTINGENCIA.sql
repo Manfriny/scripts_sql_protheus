@@ -1,6 +1,6 @@
 --MDFe
-SELECT cont_mfe, xenv_mfe, chav_mfe,a.situ_mfe,a.* FROM SYSDBA.mdfe a where nume_mfe = 391 and codi_emp =9;
-update SYSDBA.mdfe set cont_mfe = 'N', xenv_mfe = null, chav_mfe = null, situ_mfe=0 where nume_mfe = 391 and codi_emp = 9;
+SELECT cont_mfe, xenv_mfe, chav_mfe,a.situ_mfe,a.* FROM SYSDBA.mdfe a where nume_mfe = 1077 and codi_emp =7;
+update SYSDBA.mdfe set cont_mfe = 'N', xenv_mfe = null, chav_mfe = null, situ_mfe=0 where nume_mfe = 1077 and codi_emp =7;
 
 
 --NOTA FISCAL
