@@ -24,19 +24,19 @@ select a.d_e_l_e_t_,a.r_e_c_n_o_,a.* from sbf010 a where bf_filial='0301' and a.
 
 
 --CONSULTA PELO NUMERO SEQUENCIAL -- 99LDGL 99LDGZ [99LDGO (99LDMW)] 99LDGN
-select sd3.d_e_l_e_t_,sd3.r_e_c_n_o_,sd3.d3_estorno,sd3.d3_cod,sd3.d3_local,sd3.d3_lotectl,sd3.* from sd3010 sd3 where sd3.d3_numseq='99LDGN';
-update sd3010 sd3 set sd3.d_e_l_e_t_='*',sd3.r_e_c_d_e_l_=sd3.r_e_c_n_o_ where sd3.d3_numseq='99LDGN';
-update sd3010 sd3 set sd3.d3_estorno='S' where sd3.d3_numseq='99LDGN';
-select sd5.d_e_l_e_t_,sd5.r_e_c_n_o_,sd5.d5_estorno,sd5.d5_produto,sd5.d5_local,sd5.d5_lotectl,sd5.* from sd5010 sd5 where sd5.d5_numseq='99LDGN';
-update sd5010 sd5 set sd5.d_e_l_e_t_='*'  where sd5.d5_numseq='99LDGN';
-update sd5010 sd5 set sd5.d5_estorno='S'  where sd5.d5_numseq='99LDGN';
-select sdb.d_e_l_e_t_,sdb.r_e_c_n_o_,sdb.db_estorno,sdb.db_produto,sdb.db_local,sdb.db_lotectl,sdb.* from sdb010 sdb where sdb.db_numseq='99LDGN';
-update sdb010 sdb set sdb.d_e_l_e_t_='*' where sdb.db_numseq='99LDGN';
-update sdb010 sdb set sdb.db_estorno='S' where sdb.db_numseq='99LDGN';
-select sda.d_e_l_e_t_,sda.r_e_c_n_o_,sda.da_produto,sda.da_local,sda.da_lotectl,sda.* from sda010 sda where sda.da_numseq='99LDGN';
-update sda010 sda set sda.d_e_l_e_t_='*' where sda.da_numseq='99LDGN';
-select np9.d_e_l_e_t_,np9.* from np9010 np9 where np9.np9_lote='059194500' and NP9_LOCAL='43';
-update np9010 np9 set np9.d_e_l_e_t_='*',np9.r_e_c_d_e_l_=np9.r_e_c_n_o_ where np9.np9_lote='059194500' and NP9_LOCAL='43';
+select sd3.d_e_l_e_t_,sd3.r_e_c_n_o_,sd3.d3_estorno,sd3.d3_filial,sd3.d3_cod,sd3.d3_local,sd3.d3_lotectl,sd3.* from sd3010 sd3 where sd3.d3_numseq='99LWY3';
+update sd3010 sd3 set sd3.d_e_l_e_t_='*',sd3.r_e_c_d_e_l_=sd3.r_e_c_n_o_ where sd3.d3_numseq='99LWY3';
+update sd3010 sd3 set sd3.d3_estorno=' ' where sd3.d3_numseq='99LWY3';
+select sd5.d_e_l_e_t_,sd5.r_e_c_n_o_,sd5.d5_estorno,sd5.d5_produto,sd5.d5_local,sd5.d5_lotectl,sd5.* from sd5010 sd5 where sd5.d5_numseq='99LWY3';
+update sd5010 sd5 set sd5.d_e_l_e_t_='*'  where sd5.d5_numseq='99LWY3';
+update sd5010 sd5 set sd5.d5_estorno=' '  where sd5.d5_numseq='99LWY3';
+select sdb.d_e_l_e_t_,sdb.r_e_c_n_o_,sdb.db_estorno,sdb.db_produto,sdb.db_local,sdb.db_lotectl,sdb.* from sdb010 sdb where sdb.db_numseq='99LWY3' order by sdb.r_e_c_n_o_;
+update sdb010 sdb set sdb.d_e_l_e_t_=' ' where sdb.db_numseq='99LWY3';
+update sdb010 sdb set sdb.db_estorno=' ' where sdb.db_numseq='99LWY3';
+select sda.d_e_l_e_t_,sda.r_e_c_n_o_,sda.da_produto,sda.da_local,sda.da_lotectl,sda.* from sda010 sda where sda.da_numseq='99LWY3';
+update sda010 sda set sda.d_e_l_e_t_=' ' where sda.da_numseq='99LWY3';
+select np9.d_e_l_e_t_,np9.r_e_c_n_o_,np9.* from np9010 np9 where np9_filial='0401' and np9.np9_lote='C111K6M028' and NP9_LOCAL='33' and np9.np9_prod='030600029';
+update np9010 np9 set np9.d_e_l_e_t_=' ',np9.r_e_c_d_e_l_=0 where np9_filial='0401' and np9.np9_lote='C111K6M028' and NP9_LOCAL='33' and np9.np9_prod='030600029';
 
 --TABELA DE LANÇAMENTO DE PERDAS
 select d_e_l_e_t_,bc_locorig,a.* from sbc010 a where BC_SEQSD3 in ('99LDGL');

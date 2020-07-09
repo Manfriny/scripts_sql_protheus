@@ -2,29 +2,35 @@
 --000001-0301 / 000013-0302 / 000040-0303 / 000002-0401 / 000004-0402
 
 define f1filial='0302';
-define f1doc= '017636';
+define f1doc= '018841';
 define f1serie='1';
 define f1ent = '000013';
 
 define f2filial='0302';
-define f2doc= '017636';
+define f2doc= '018841';
 define f2serie='1';
 define f2ent = '000013';
 --000011/0 entrada
 
-
+select * from sa2010 where a2_cod='813008671' and a2_loja='02';
 --==================== ENTRADA ====================
-select f1.d_e_l_e_t_,f1.f1_doc,f1.f1_chvnfe,f1.f1_especie,f1.* from sf1010 f1 where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
+select f1.d_e_l_e_t_,f1.f1_doc,f1.f1_chvnfe,f1.f1_especie,f1.f1_fornece,f1_loja,f1.* from sf1010 f1 where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
+update sf1010 f1 set F1_CHVNFE='52200703482332000229550010000188411147556037' where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
 update sf1010 f1 set f1.d_e_l_e_t_=' ',f1.r_e_c_d_e_l_=0 where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
 select d1.d_e_l_e_t_,d1.d1_doc,d1.* from sd1010 d1 where d1.d1_filial='&f1filial' and d1.d1_doc='&f1doc' and d1.d1_serie='&f1serie';
 update sd1010 d1 set d1.d_e_l_e_t_=' ',d1.r_e_c_d_e_l_=0 where d1.d1_filial='&f1filial' and d1.d1_doc='&f1doc' and d1.d1_serie='&f1serie';
 
-select ft.d_e_l_e_t_,ft.ft_nfiscal,ft.ft_chvnfe,ft.ft_especie,ft.* from sft010 ft where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
-update sft010 ft set ft.ft_chvnfe='52200203482332000300550030000002651849652832',ft.ft_especie='SPED' where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
-select f3.d_e_l_e_t_,f3.f3_nfiscal,f3.f3_chvnfe,f3.f3_especie,f3.* from sf3010 f3 where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
-update sf3010 f3 set f3.f3_chvnfe='52200203482332000300550030000002651849652832',f3.f3_especie='SPED' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
+select ft.d_e_l_e_t_,ft.ft_nfiscal,ft.ft_chvnfe,ft.ft_especie,FT_OBSERV,ft_dtcanc,ft.* from sft010 ft where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
+update sft010 ft set FT_OBSERV=' ',ft_dtcanc=' ' where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
+update sft010 ft set ft.d_e_l_e_t_=' ',ft.r_e_c_d_e_l_=0 where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
+update sft010 ft set ft.ft_chvnfe='52200703482332000229550010000188411147556037',ft.ft_especie='SPED' where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
+select f3.d_e_l_e_t_,f3.f3_nfiscal,f3.f3_chvnfe,f3.f3_especie,f3_observ,f3_dtcanc,f3.* from sf3010 f3 where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
+update sf3010 f3 set f3_observ=' ',f3_dtcanc=' ' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
+update sf3010 f3 set f3.d_e_l_e_t_=' ' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
+update sf3010 f3 set f3.f3_chvnfe='52200703482332000229550010000188411147556037',f3.f3_especie='SPED' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
 
-select * from SPED.sped050 where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+select spd.doc_id,spd.doc_chv,spd.* from SPED.sped050 spd where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+--update SPED.sped050 spd set spd.doc_chv='52200703482332000229550010000188411147556037',NFE_PROT='152203243442982',CNPJDEST='81300867191',spd.tipo_canc='0',VERSAO='4.00',DATE_ENFE='20200705',TIME_ENFE='09:31:09' where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 update SPED.sped050 set STATUS='6',STATUSCANC='0' where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 select * from SPED.sped054 where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 update SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and CSTAT_SEFR <> '100' and D_E_L_E_T_=' '; 
