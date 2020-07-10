@@ -1,6 +1,6 @@
-define Filial='0301';
-define Nota='079256';
-define Serie='3';
+define Filial='0401';
+define Nota='092446';
+define Serie='2';
 
 select a.d_e_l_e_t_,a.f1_doc,f1_serie,a.f1_filial,a.f1_emissao,a.f1_chvnfe,a.* from sf1010 a where a.f1_filial='0301' and a.f1_doc in ('078231') order by a.f1_doc;
 
@@ -25,7 +25,7 @@ update SPED.SPED054 set D_E_L_E_T_='*',R_E_C_D_E_L_=R_E_C_N_O_ where NFE_ID like
 select a.d_e_l_e_t_,a.f2_doc,f2_serie,a.f2_filial,a.f2_emissao,a.f2_chvnfe,a.* from sf2010 a where a.f2_filial='0301' and a.f2_doc in ('075458') order by a.f2_doc;
 
 select F2_FIMP,F2_STATUS,f2.D_E_L_E_T_,f2.F2_FILIAL,f2.F2_DOC,f2.f2_chvnfe,f2.* from SF2010 f2 where F2_FILIAL='&Filial' and F2_DOC='&Nota' and F2_SERIE=&Serie;
---update sf2010 set f2_fimp=' ' where F2_FILIAL=&Filial and F2_DOC='&Nota' and F2_SERIE=&Serie;
+--update sf2010 set f2_fimp=' ' where F2_FILIAL='&Filial' and F2_DOC='&Nota' and F2_SERIE='&Serie';
 select d2.D_E_L_E_T_,d2.D2_FILIAL,d2.D2_DOC,d2.* from SD2010 d2 where D2_FILIAL='&Filial' and D2_DOC='&Nota' and D2_SERIE=&Serie;
 
 select ft.D_E_L_E_T_,ft.FT_NFISCAL,ft.* from SFT010 ft where FT_FILIAL='&Filial' and FT_NFISCAL='&Nota' and FT_SERIE='&Serie';
