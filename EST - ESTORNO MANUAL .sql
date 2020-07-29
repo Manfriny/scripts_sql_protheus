@@ -25,17 +25,17 @@ select a.d_e_l_e_t_,a.r_e_c_n_o_,a.* from sbf010 a where bf_filial='0301' and a.
 
 
 --CONSULTA PELO NUMERO SEQUENCIAL -- in ('99LX48','99LX6C','99LX87','99LX8V','99LXAX','99LXBD','99LXCX');
-select sd3.d_e_l_e_t_,sd3.r_e_c_n_o_,sd3.d3_estorno,sd3.d3_filial,sd3.d3_cod,sd3.d3_local,sd3.d3_lotectl,sd3.* from sd3010 sd3 where sd3.d3_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-update sd3010 sd3 set sd3.d_e_l_e_t_='*',sd3.r_e_c_d_e_l_=sd3.r_e_c_n_o_ where sd3.d3_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-update sd3010 sd3 set sd3.d3_estorno=' ' where sd3.d3_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-select sd5.d_e_l_e_t_,sd5.r_e_c_n_o_,sd5.d5_estorno,sd5.d5_produto,sd5.d5_local,sd5.d5_lotectl,sd5.* from sd5010 sd5 where sd5.d5_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-update sd5010 sd5 set sd5.d_e_l_e_t_='*'  where sd5.d5_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-update sd5010 sd5 set sd5.d5_estorno=' '  where sd5.d5_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-select sdb.d_e_l_e_t_,sdb.r_e_c_n_o_,sdb.db_estorno,sdb.db_produto,sdb.db_local,sdb.db_lotectl,sdb.* from sdb010 sdb where sdb.db_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-update sdb010 sdb set sdb.d_e_l_e_t_='*' where sdb.db_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-update sdb010 sdb set sdb.db_estorno=' ' where sdb.db_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-select sda.d_e_l_e_t_,sda.r_e_c_n_o_,sda.da_produto,sda.da_local,sda.da_lotectl,sda.* from sda010 sda where sda.da_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
-update sda010 sda set sda.d_e_l_e_t_='*' where sda.da_numseq in ('99LRM4', '99LTSP', '99LTTA', '99LX49', '99LX6D', '99LX88', '99LX8W', '99LXAY', '99LXBE', '99LXCY');
+select sd3.d_e_l_e_t_,sd3.r_e_c_n_o_,sd3.d3_estorno,sd3.d3_filial,sd3.d3_cod,sd3.d3_local,sd3.d3_lotectl,sd3.* from sd3010 sd3 where sd3.d3_numseq in ('99KQQL','99KQQM');
+update sd3010 sd3 set sd3.d_e_l_e_t_='*',sd3.r_e_c_d_e_l_=sd3.r_e_c_n_o_ where sd3.d3_numseq in ('99KQQL','99KQQM');
+update sd3010 sd3 set sd3.d3_estorno=' ' where sd3.d3_numseq in ('99KQQL','99KQQM');
+select sd5.d_e_l_e_t_,sd5.r_e_c_n_o_,sd5.d5_estorno,sd5.d5_produto,sd5.d5_local,sd5.d5_lotectl,sd5.* from sd5010 sd5 where sd5.d5_numseq in ('99KQQL','99KQQM');
+update sd5010 sd5 set sd5.d_e_l_e_t_='*'  where sd5.d5_numseq in ('99KQQL','99KQQM');
+update sd5010 sd5 set sd5.d5_estorno=' '  where sd5.d5_numseq in ('99KQQL','99KQQM');
+select sdb.d_e_l_e_t_,sdb.r_e_c_n_o_,sdb.db_estorno,sdb.db_produto,sdb.db_local,sdb.db_lotectl,sdb.* from sdb010 sdb where sdb.db_numseq in ('99KQQL','99KQQM');
+update sdb010 sdb set sdb.d_e_l_e_t_='*' where sdb.db_numseq in ('99KQQL','99KQQM');
+update sdb010 sdb set sdb.db_estorno=' ' where sdb.db_numseq in ('99KQQL','99KQQM');
+select sda.d_e_l_e_t_,sda.r_e_c_n_o_,sda.da_produto,sda.da_local,sda.da_lotectl,sda.* from sda010 sda where sda.da_numseq in ('99KQQL','99KQQM');
+update sda010 sda set sda.d_e_l_e_t_='*' where sda.da_numseq in ('99KQQL','99KQQM');
 select np9.d_e_l_e_t_,np9.r_e_c_n_o_,np9.* from np9010 np9 where np9_filial='0401' and np9.np9_lote='C111K6M028' and NP9_LOCAL='33' and np9.np9_prod='030600029';
 update np9010 np9 set np9.d_e_l_e_t_=' ',np9.r_e_c_d_e_l_=0 where np9_filial='0401' and np9.np9_lote='C111K6M028' and NP9_LOCAL='33' and np9.np9_prod='030600029';
 
