@@ -1,0 +1,2 @@
+select a.b2_salpedi,b2_salped2,a.* from sb2010 a where b2_filial='0401' and b2_cod='030600029' and b2_local='33';
+update sb2010 set b2_salpedi=0,b2_salped2=0 where b2_filial='0401' and b2_cod='030600029' and b2_local='33';

@@ -1,7 +1,7 @@
-define Filial = '0402';
-define DocIni = '000094';
-define DocFim = '000094';
-define Serie  = '0';
+define Filial = '0401';
+define DocIni = '000761';
+define DocFim = '000761';
+define Serie  = 'U';
 
 --verificar se existem notas na frente
 --create table SD9010_BKP_20190404 as 
