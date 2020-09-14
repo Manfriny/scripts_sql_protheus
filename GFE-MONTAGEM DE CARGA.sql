@@ -35,7 +35,10 @@ select d_e_l_e_t_,GWV_NRROM,a.* from gwv010 a where gwv_filial='&filial' and gwv
 update gwv010 set d_e_l_e_t_='*',R_E_C_D_E_L_=r_e_c_n_o_ where gwv_filial='&filial' and gwv_nrmov='&numMov';
 update gwv010 set d_e_l_e_t_=' ',R_E_C_D_E_L_=0 where gwv_filial='&filial' and gwv_nrmov='&numMov';
 
-update gwv010 set GWV_NRROM=' ' where gwv_filial='&filial' and gwv_nrmov='&numMov';
+
+select gwv_nrmov,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrrom='01037501';
+update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00023984';
 
 select d_e_l_e_t_,a.* from NJS010 a where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002' and a.d_e_l_e_t_=' ';
 update NJS010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002';
+
