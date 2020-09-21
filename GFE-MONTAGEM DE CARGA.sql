@@ -35,10 +35,21 @@ select d_e_l_e_t_,GWV_NRROM,a.* from gwv010 a where gwv_filial='&filial' and gwv
 update gwv010 set d_e_l_e_t_='*',R_E_C_D_E_L_=r_e_c_n_o_ where gwv_filial='&filial' and gwv_nrmov='&numMov';
 update gwv010 set d_e_l_e_t_=' ',R_E_C_D_E_L_=0 where gwv_filial='&filial' and gwv_nrmov='&numMov';
 
+--01047901
+select gwv_nrrom,gwv_nrmov,gwv.gwv_sit,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrrom='01064301';
+select gx3.gx3_sit,gx3.* from GX3010 gx3 where gx3.gx3_filial='0301' and gx3.gx3_nrmov='00024318'; -- sit tem que ser = 5
+update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00024318';
+select gwv_nrmov,gwv.gwv_sit,GWV_NRROM,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrmov='00024318';
 
-select gwv_nrmov,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrrom='01037501';
-update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00023984';
+
+
+select gwn.d_e_l_e_t_,gwn.* from gwn010 gwn where gwn_nrrom='01064301';gwn_nrmov='01064301';
+update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00024136';
+select gwv_nrmov,gwv.gwv_sit,GWV_NRROM,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrmov='00024136';
 
 select d_e_l_e_t_,a.* from NJS010 a where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002' and a.d_e_l_e_t_=' ';
 update NJS010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002';
 
+select d_e_l_e_t_,dak.* from dak010 dak where dak_cod='010470';
+/*
+GPC3993

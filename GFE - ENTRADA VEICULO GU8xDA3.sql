@@ -5,15 +5,15 @@ select 'DA3' as Tabela,DA3_PLACA as Placa,DA3_ALTEXT as Altura,DA3_LAREXT as Lar
 
 -----------------------------------------------------------------------------------------
 --MOTORISTA/AJUDANTE BLOQUEADOS  --00572729057  97376523120
-select a.r_e_c_n_o_,D_E_L_E_T_,a.da4_blqmot,a.* from DA4010 a where DA4_CGC in ('05891368609');
-update DA4010 set D_E_L_E_T_=' ',R_E_C_D_E_L_=0 where DA4_CGC in ('02692009169'); --00638611199
+select a.r_e_c_n_o_,D_E_L_E_T_,a.da4_blqmot,DA4_CGC,a.* from DA4010 a where DA4_CGC in ('90077989104');
+update DA4010 set D_E_L_E_T_=' ',R_E_C_D_E_L_=0 where DA4_CGC in ('90077989104'); --00638611199
 --update DA4010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where r_e_c_n_o_=8942;
---update da4010 set da4_blqmot='2' where r_e_c_n_o_=4393;
+--update da4010 set da4_blqmot='2' where r_e_c_n_o_=13180;
 --select D_E_L_E_T_,a.* from DA4010 a where DA4_nome like '%CAIRO%';
 --select D_E_L_E_T_,a.* from DA3010 a where DA3_PLACA='BCQ5851';
 
-select a.r_e_c_n_o_,d_e_l_e_t_,GUU_SIT,GUU_DTSIT,NVL(trim(GUU_DSSIT),' ')GUU_DSSIT,a.* from GUU010 a where GUU_IDFED in ('05891368609');
-update GUU010 set GUU_SIT=1 where GUU_IDFED in ('05891368609');
+select a.r_e_c_n_o_,d_e_l_e_t_,GUU_SIT,GUU_DTSIT,NVL(trim(GUU_DSSIT),' ')GUU_DSSIT,a.* from GUU010 a where GUU_IDFED in ('90077989104');
+update GUU010 set GUU_SIT=1 where GUU_IDFED in ('90077989104');
 --update GUU010 set GUU_NMMTR=GUU_PSEUD where r_e_c_n_o_=9412;   
 --delete from GUU010 where r_e_c_n_o_ in (5004);
 

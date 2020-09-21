@@ -13,9 +13,9 @@ select * from sc0010 where c0_produto='040100016' and c0_local='99'; and c0_lote
 select d_e_l_e_t_,a.* from sc5010 a where c5_num='184043';
 select d_e_l_e_t_,a.c6_lotectl,a.* from sc6010 a where c6_produto='040100004' and c6_qtdven='10';
 
-
+--
 select 
-d_e_l_e_t_,
+d_e_l_e_t_, 
 totvslg_user(c6_userlgi) as usu_inclusao,
 totvslg_data(c6_userlgi) as dat_inclusao,
 a.c6_reserva,
