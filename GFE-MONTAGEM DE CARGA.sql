@@ -1,6 +1,6 @@
-define fiarlial = '0301';
+define filial = '0301';
 define pedido = '197487';
-define cga = '010177';
+define carga = '010177';
 define numMov = '00023582';
 
 --PEDIDO DA CARGA
@@ -36,20 +36,42 @@ update gwv010 set d_e_l_e_t_='*',R_E_C_D_E_L_=r_e_c_n_o_ where gwv_filial='&fili
 update gwv010 set d_e_l_e_t_=' ',R_E_C_D_E_L_=0 where gwv_filial='&filial' and gwv_nrmov='&numMov';
 
 --01047901
-select gwv_nrrom,gwv_nrmov,gwv.gwv_sit,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrrom='01064301';
-select gx3.gx3_sit,gx3.* from GX3010 gx3 where gx3.gx3_filial='0301' and gx3.gx3_nrmov='00024318'; -- sit tem que ser = 5
-update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00024318';
-select gwv_nrmov,gwv.gwv_sit,GWV_NRROM,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrmov='00024318';
+select gwv_nrrom,gwv_nrmov,gwv.gwv_sit,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrrom='01092901';
+select gx3.gx3_sit,gx3.* from GX3010 gx3 where gx3.gx3_filial='0301' and gx3.gx3_nrmov='00024600'; -- sit tem que ser = 5
+update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00024600';
+select gwv_nrmov,gwv.gwv_sit,GWV_NRROM,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrmov='00024600';
+
+select gwv_nrrom,gwv_nrmov,gwv.gwv_sit,gwv.* from gwv010 gwv where GWV_FILIAL='0303' and gwv_nrrom='00012401';
+select gx3.gx3_sit,gx3.* from GX3010 gx3 where gx3.gx3_filial='0303' and gx3.gx3_nrmov='00000071'; -- sit tem que ser = 5
+update gwv010 set GWV_NRROM=' ' where gwv_filial='0303' and gwv_nrmov='00000071';
+select gwv_nrmov,gwv.gwv_sit,GWV_NRROM,gwv.* from gwv010 gwv where GWV_FILIAL='0303' and gwv_nrmov='00000071';
 
 
 
-select gwn.d_e_l_e_t_,gwn.* from gwn010 gwn where gwn_nrrom='01064301';gwn_nrmov='01064301';
-update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00024136';
-select gwv_nrmov,gwv.gwv_sit,GWV_NRROM,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrmov='00024136';
 
 select d_e_l_e_t_,a.* from NJS010 a where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002' and a.d_e_l_e_t_=' ';
 update NJS010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where NJS_FILIAL='0301' and NJS_NRMOV='00023583' and NJS_SEQ='002';
 
 select d_e_l_e_t_,dak.* from dak010 dak where dak_cod='010470';
 /*
-GPC3993
+26/09/2020
+01092901 - 00024600
+00012401 - 00000071
+
+25/09/2020
+01087601 - 00024551
+01090501 - 00024576
+
+24/09/2020
+01083501 - 00024502
+01084001 - 00024506
+
+23/09/2020
+01075201 - 00024435
+01077101 - 00024439
+01077801 - 00024446
+01071501 - 00024405
+01078601 - 00024453
+01074601 - 00024424
+01078401 - 00024449
+01080801 - 00024479

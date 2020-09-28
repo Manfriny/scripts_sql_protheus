@@ -21,8 +21,8 @@ FROM
 WHERE
     gu3.d_e_l_e_t_=' ' and
     --gu3.gu3_nmemit LIKE '%ELTON%SANDRI%';
-    gu3.gu3_idfed='04069263608' and 
-    gu3.gu3_cdcerp='03'
+    gu3.gu3_idfed='28439074000148' 
+    --and gu3.gu3_cdcerp='03'
     order by gu3_cdcerp;
     
 update gu3010 set GU3_CDTERP='008603',gu3_transp='1' where gu3_cdemit='002507884';
@@ -47,7 +47,7 @@ SELECT
 FROM
     sa4010 a4
 WHERE
-    a4.a4_nome LIKE '%ELTON%SANDRI%';
+    a4.a4_nome LIKE '%INSTITUTO%GOIANO%';
     
 select a4_insest,a.* from sa4010 a where a4_cod='007654';
 update sa4010 set a4_insest='ISENTO' where a4_cod='007654';
@@ -67,7 +67,7 @@ SELECT
 FROM
     sa2010 a2
 WHERE
-    a2.a2_nome LIKE '%ELTON%SANDRI%';
+    a2.a2_nome LIKE '%INSTITUTO%GOIANO%';
     
 select a1_CGC,a.* from sa1010 a where a1_nome like '%ELTON%SANDRI%';
 select a2_cgc,a2_msblql,a2.a2_inscr,a2.* from sa2010 a2 where a2_cgc='26103060087';
