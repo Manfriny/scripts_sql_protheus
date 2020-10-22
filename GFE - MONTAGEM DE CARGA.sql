@@ -37,7 +37,7 @@ update gwv010 set d_e_l_e_t_=' ',R_E_C_D_E_L_=0 where gwv_filial='&filial' and g
 
 --01047901
 select gwv_nrrom,gwv_nrmov,gwv.gwv_sit,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrrom='01092901';
-select gx3.gx3_sit,gx3.* from GX3010 gx3 where gx3.gx3_filial='0301' and gx3.gx3_nrmov='00024600'; -- sit tem que ser = 5
+select gx3.gx3_sit,gx3.* from GX3010 gx3 where gx3.gx3_filial='0301' and gx3.gx3_nrmov='00025665'; -- sit tem que ser = 5 (1-aberto; 2-movimentado; 3-em fila; 4-endereçado; 5-cancelado; 6-concluido)
 update gwv010 set GWV_NRROM=' ' where gwv_filial='0301' and gwv_nrmov='00024600';
 select gwv_nrmov,gwv.gwv_sit,GWV_NRROM,gwv.* from gwv010 gwv where GWV_FILIAL='0301' and gwv_nrmov='00024600';
 

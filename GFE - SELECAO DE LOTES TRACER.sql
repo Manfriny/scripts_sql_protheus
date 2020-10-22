@@ -142,7 +142,7 @@ FROM
                 '2',
                 '3'
             )
-            /*AND sc9.c9_qtdlib > (
+          /*  AND sc9.c9_qtdlib > ( --
                 SELECT
                     nvl((
                         SELECT
@@ -159,7 +159,7 @@ FROM
                     ), 0)
                 FROM
                     dual
-            )*/
+            )--*/
             AND sc9.d_e_l_e_t_ = ' '
            AND ( ( sc6.d_e_l_e_t_ = ' '
                     AND sc9.d_e_l_e_t_ = ' '
@@ -179,12 +179,12 @@ FROM
                   OR ( sc6.d_e_l_e_t_ = ' '
                        AND sc9.d_e_l_e_t_ = '*'
                        AND nj5.d_e_l_e_t_ IS NULL ) )
-            AND c9_carga = '010741'
+            AND c9_carga = '011925'
             AND c9_seqcar = '01'
     ) x1
 
 WHERE
-    x1.codcarga = '010741'
+    x1.codcarga = '011925'
     AND x1.seqcar = '01';
     
 --===========================================================
@@ -195,14 +195,14 @@ WHERE
                             nj6010 nj6s
                         WHERE
                             nj6s.nj6_filial = '0301'
-                            AND nj6s.nj6_numpv in ('203234','198813')
+                            AND nj6s.nj6_numpv in ('202393')
                             AND nj6s.nj6_item = '01'
                             AND nj6s.nj6_sequen = '01'
-                            AND nj6s.nj6_produt in ('010800140','010300096','010500114')
+                            AND nj6s.nj6_produt in ('010300483')
                             AND nj6s.d_e_l_e_t_ <> '*';
                             
-                select * from sc6010 where c6_num='198813';   
-                select * from sc9010 where c9_filial='0301' and c9_carga='010697';
-                select d_e_l_e_t_,dak.* from dak010 dak where dak_filial='0301' and dak_cod='010697'; 
-                select dai.d_e_l_e_t_,dai.* from dai010 dai where dai_filial='0301' and dai_cod='010697';
-                select * from gwv010 where gwv_filial='0301' and gwv_nrrom='01069701';
+                select * from sc6010 where c6_num='202970';   
+                select * from sc9010 where c9_filial='0301' and c9_carga='011925';
+                select d_e_l_e_t_,dak.* from dak010 dak where dak_filial='0301' and dak_cod='011925'; 
+                select dai.d_e_l_e_t_,dai.* from dai010 dai where dai_filial='0301' and dai_cod='011925';
+                select * from gwv010 where gwv_filial='0301' and gwv_nrrom='01192501';

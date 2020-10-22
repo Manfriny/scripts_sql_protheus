@@ -6,10 +6,10 @@ define f1doc= '018841';
 define f1serie='1';
 define f1ent = '000013';
 
-define f2filial='0302';
-define f2doc= '018841';
-define f2serie='1';
-define f2ent = '000013';
+define f2filial='0301';
+define f2doc= '097346';
+define f2serie='3';
+define f2ent = '000001';
 --000011/0 entrada
 
 select * from sa2010 where a2_cod='813008671' and a2_loja='02';
@@ -48,10 +48,12 @@ select d_e_l_e_t_,ft_nfiscal,ft.ft_chvnfe,ft.ft_especie,ft.ft_observ,ft.ft_dtcan
 update sft010 ft set ft.ft_chvnfe='52200502745323000210550010000408541814103932' where ft_filial='&f2filial' and ft_nfiscal='&f2doc' and ft.ft_serie='&f2serie' and ft.ft_tipomov='S';
 
 
-select * from SPED.sped050 where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+select * from SPED.sped050 where ID_ENT='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
+update SPED.sped050 spd set spd.d_e_l_e_t_='*',spd.r_e_c_d_e_l_=spd.r_e_c_n_o_ where ID_ENT='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
+
 update SPED.sped050 set STATUS='6',STATUSCANC='0',nfe_prot='152203130441167',DOC_CHV='52200502745323000210550010000408581919523493' where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 
-select * from SPED.sped054 where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+select * from SPED.sped054 where ID_ENT='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
 --UPDATE SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 UPDATE SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV <> '52200502745323000210550010000408581919523493';
 UPDATE SPED.sped054 set CSTAT_SEFR='100',XMOT_SEFR='Autorizado o uso da NF-e',NFE_PROT='152203130441167' where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV = '52200502745323000210550010000408581919523493';
