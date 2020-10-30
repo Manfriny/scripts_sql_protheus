@@ -5,18 +5,20 @@ select 'DA3' as Tabela,DA3_PLACA as Placa,DA3_ALTEXT as Altura,DA3_LAREXT as Lar
 
 -----------------------------------------------------------------------------------------
 --MOTORISTA/AJUDANTE BLOQUEADOS  --00572729057  97376523120
-select a.r_e_c_n_o_,D_E_L_E_T_,a.da4_blqmot,DA4_CGC,a.* from DA4010 a where DA4_CGC in ('52988090149') ; --and a.d_e_l_e_t_=' ';
+select a.r_e_c_n_o_,D_E_L_E_T_,a.da4_blqmot,DA4_CGC,a.* from DA4010 a where DA4_CGC in ('00365961167') ; --and a.d_e_l_e_t_=' ';
 update DA4010 set D_E_L_E_T_=' ',R_E_C_D_E_L_=0 where DA4_CGC in ('90077989104'); --00638611199
 --update DA4010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where r_e_c_n_o_ in (20222,4124);
---update da4010 set da4_blqmot='1' where r_e_c_n_o_ in (20222,4124); -- 1=sim e 2=nao
+--update da4010 set da4_blqmot='2' where r_e_c_n_o_ in (5186); -- Bloqueado? 1=sim e 2=nao
+--update DA4010 da4 set da4.da4_nreduz=upper('Anderson') where DA4_CGC in ('00365961167') ; --and a.d_e_l_e_t_=' ';
 --select D_E_L_E_T_,a.* from DA4010 a where DA4_nome like '%CAIRO%';
 --select D_E_L_E_T_,a.* from DA3010 a where DA3_PLACA='BCQ5851';
 
-select a.r_e_c_n_o_,a.r_e_c_d_e_l_,d_e_l_e_t_,GUU_SIT,GUU_DTSIT,NVL(trim(GUU_DSSIT),' ')GUU_DSSIT,a.* from GUU010 a where GUU_IDFED in ('52988090149') ; --and a.d_e_l_e_t_=' ';
-update GUU010 set GUU_SIT=1 where GUU_IDFED in ('90077989104');
+select a.r_e_c_n_o_,a.r_e_c_d_e_l_,d_e_l_e_t_,GUU_SIT,GUU_DTSIT,NVL(trim(GUU_DSSIT),' ')GUU_DSSIT,a.* from GUU010 a where GUU_IDFED in ('00365961167') ; --and a.d_e_l_e_t_=' ';
+update GUU010 set GUU_SIT=1 where GUU_IDFED in ('00365961167'); -- Ativo? 1=sim e 2=nao
+--update GUU010 guu set guu.guu_pseud=upper('anderson') where GUU_IDFED in ('00365961167');
 --update GUU010 set GUU_NMMTR=GUU_PSEUD where r_e_c_n_o_=9412;
-update guu010 guu set guu.d_e_l_e_t_='*',guu.r_e_c_d_e_l_=guu.r_e_c_n_o_ where guu.r_e_c_n_o_ in (186,13270);
-update guu010 guu set guu.guu_sit='1' where guu.r_e_c_n_o_ in (13275);
+--update guu010 guu set guu.d_e_l_e_t_='*',guu.r_e_c_d_e_l_=guu.r_e_c_n_o_ where guu.r_e_c_n_o_ in (186,13270);
+--update guu010 guu set guu.guu_sit='1' where guu.r_e_c_n_o_ in (13275);
 --delete from GUU010 where r_e_c_n_o_ in (5004);
 
 select * from guu010 where GUU_CDMTR='008477';
