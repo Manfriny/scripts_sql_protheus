@@ -21,10 +21,10 @@ update GUU010 set GUU_SIT=1 where GUU_IDFED in ('00365961167'); -- Ativo? 1=sim 
 --update guu010 guu set guu.guu_sit='1' where guu.r_e_c_n_o_ in (13275);
 --delete from GUU010 where r_e_c_n_o_ in (5004);
 
-select * from guu010 where GUU_CDMTR='008477';
 
-select D_E_L_E_T_,a.* from DA4010 a where DA4_CGC in ('02116054176');
-select * from DAU010;
+--======== MOTORISTA JA ESTA NO PATIO -> Verificar se o ultimo movimento foi Concluído
+-- sit tem que ser = 5 (1-aberto; 2-movimentado; 3-em fila; 4-endereçado; 5-cancelado; 6-concluido)
+update GX3010 gx3 set gx3.gx3_sit='6' where gx3.gx3_filial='0301' and gx3.gx3_nrmov='00026347';
 
 -----------------------------------------------------------------------------------------
 --REGISTROS DELETADOS NA DA4010 E INATIVOS NA GUU010
