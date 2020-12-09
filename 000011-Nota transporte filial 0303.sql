@@ -2,15 +2,16 @@
 --000001-0301 / 000013-0302 / 000040-0303 / 000002-0401 / 000004-0402
 
 define f1filial='0302';
-define f1doc= '018841';
+define f1doc= '021602';
 define f1serie='1';
 define f1ent = '000013';
 
-define f2filial='0301';
-define f2doc= '097346';
-define f2serie='3';
-define f2ent = '000001';
+define f2filial='0302';
+define f2doc= '021602';
+define f2serie='1';
+define f2ent = '000013';
 --000011/0 entrada
+define chave = '52201203482332000229550010000216021615893948';
 
 select * from sa2010 where a2_cod='813008671' and a2_loja='02';
 --==================== ENTRADA ====================
@@ -38,26 +39,26 @@ select * from SPED.sped054 where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'
 --==================== SAIDA ====================
 select d_e_l_e_t_,f2_doc,f2.f2_chvnfe,f2.f2_especie,f2.* from sf2010 f2 where f2_filial='&f2filial' and f2_doc='&f2doc' and f2.f2_serie='&f2serie';
 --update sf2010 f2 set f2.d_e_l_e_t_=' ',f2.r_e_c_d_e_l_=0 where f2_filial='&f2filial' and f2_doc='&f2doc' and f2.f2_serie='&f2serie';
-update sf2010 f2 set f2.f2_chvnfe='52200502745323000210550010000408581919523493' where f2_filial='&f2filial' and f2_doc='&f2doc' and f2.f2_serie='&f2serie';
+update sf2010 f2 set f2.f2_chvnfe='52201203482332000229550010000216021615893948' where f2_filial='&f2filial' and f2_doc='&f2doc' and f2.f2_serie='&f2serie';
 select d_e_l_e_t_,d2_doc,d2.d2_pedido,d2.d2_especie,d2.* from sd2010 d2 where d2_filial='&f2filial' and d2_doc='&f2doc' and d2.d2_serie='&f2serie';
 update sd2010 d2 set D2_ESPECIE='SPED' where d2_filial='&f2filial' and d2_doc='&f2doc' and d2.d2_serie='&f2serie';
 
 select d_e_l_e_t_,f3_nfiscal,f3.f3_chvnfe,f3.f3_especie,f3.f3_codrsef,f3.f3_observ,f3.f3_dtcanc,f3.* from sf3010 f3 where f3_filial='&f2filial' and f3_nfiscal='&f2doc' and f3.f3_serie='&f2serie' and f3.f3_cfo between '5000' and '7000';
-update sf3010 f3 set f3.f3_codrsef='100',F3_CHVNFE='52200502745323000210550010000408581919523493' where f3_filial='&f2filial' and f3_nfiscal='&f2doc' and f3.f3_serie='&f2serie' and f3.f3_cfo between '5000' and '7000';
+update sf3010 f3 set f3.f3_codrsef='100',F3_CHVNFE='52201203482332000229550010000216021615893948' where f3_filial='&f2filial' and f3_nfiscal='&f2doc' and f3.f3_serie='&f2serie' and f3.f3_cfo between '5000' and '7000';
 select d_e_l_e_t_,ft_nfiscal,ft.ft_chvnfe,ft.ft_especie,ft.ft_observ,ft.ft_dtcanc,ft.* from sft010 ft where ft_filial='&f2filial' and ft_nfiscal='&f2doc' and ft.ft_serie='&f2serie' and ft.ft_tipomov='S';
-update sft010 ft set ft.ft_chvnfe='52200502745323000210550010000408541814103932' where ft_filial='&f2filial' and ft_nfiscal='&f2doc' and ft.ft_serie='&f2serie' and ft.ft_tipomov='S';
+update sft010 ft set ft.ft_chvnfe='52201203482332000229550010000216021615893948' where ft_filial='&f2filial' and ft_nfiscal='&f2doc' and ft.ft_serie='&f2serie' and ft.ft_tipomov='S';
 
 
 select * from SPED.sped050 where ID_ENT='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
 update SPED.sped050 spd set spd.d_e_l_e_t_='*',spd.r_e_c_d_e_l_=spd.r_e_c_n_o_ where ID_ENT='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
-
-update SPED.sped050 set STATUS='6',STATUSCANC='0',nfe_prot='152203130441167',DOC_CHV='52200502745323000210550010000408581919523493' where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+update SPED.sped050 set STATUS='6',STATUSCANC='0',nfe_prot='152203621412044',DOC_CHV='52201203482332000229550010000216021615893948' where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 
 select * from SPED.sped054 where ID_ENT='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
 --UPDATE SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
-UPDATE SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV <> '52200502745323000210550010000408581919523493';
-UPDATE SPED.sped054 set CSTAT_SEFR='100',XMOT_SEFR='Autorizado o uso da NF-e',NFE_PROT='152203130441167' where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV = '52200502745323000210550010000408581919523493';
+UPDATE SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV <> '52201203482332000229550010000216021615893948';
+UPDATE SPED.sped054 set CSTAT_SEFR='100',XMOT_SEFR='Autorizado o uso da NF-e',NFE_PROT='152203621412044' where ID_ENT='&f2ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV = '52201203482332000229550010000216021615893948';
 
+select * from sped052 spd where spd.id_ent='000013' and spd.lote='000000000022644';
 --================================================
 
 
