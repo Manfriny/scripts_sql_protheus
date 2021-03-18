@@ -8,21 +8,21 @@
 --0402 - 02745323000210 (02.745.323/0002-10)
 --===================================================
 
-define f1filial='0301';
-define f1doc= '101608';
-define f1serie='3';
-define f1ent = '000001';
+define f1filial='0402';
+define f1doc= '046122';
+define f1serie='1';
+define f1ent = '000004';
 
-define f2filial='0301';
-define f2doc= '101608';
-define f2serie='3';
-define f2ent = '000001';
+define f2filial='0402';
+define f2doc= '046122';
+define f2serie='1';
+define f2ent = '000004';
 --000011/0 entrada
-define chave = '52210203482332000229550010000218421468894126';
+define chave = '52210302745323000210550010000461221846603744';
 
 --==================== ENTRADA ====================
 select f1.d_e_l_e_t_,f1.f1_doc,f1.f1_chvnfe,f1.f1_especie,f1.f1_fornece,f1_loja,f1.* from sf1010 f1 where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
-update sf1010 f1 set F1_CHVNFE='52210203482332000229550010000218421468894126' where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
+update sf1010 f1 set F1_CHVNFE='52210302745323000210550010000461221846603744' where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
 --update sf1010 f1 set f1.d_e_l_e_t_=' ',f1.r_e_c_d_e_l_=0 where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
 select d1.d_e_l_e_t_,d1.d1_doc,d1.* from sd1010 d1 where d1.d1_filial='&f1filial' and d1.d1_doc='&f1doc' and d1.d1_serie='&f1serie';
 --update sd1010 d1 set d1.d_e_l_e_t_=' ',d1.r_e_c_d_e_l_=0 where d1.d1_filial='&f1filial' and d1.d1_doc='&f1doc' and d1.d1_serie='&f1serie';
@@ -30,19 +30,19 @@ select d1.d_e_l_e_t_,d1.d1_doc,d1.* from sd1010 d1 where d1.d1_filial='&f1filial
 select ft.d_e_l_e_t_,ft.ft_nfiscal,ft.ft_chvnfe,ft.ft_especie,FT_OBSERV,ft_dtcanc,ft.* from sft010 ft where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
 --update sft010 ft set FT_OBSERV=' ',ft_dtcanc=' ' where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
 --update sft010 ft set ft.d_e_l_e_t_=' ',ft.r_e_c_d_e_l_=0 where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
-update sft010 ft set ft.ft_chvnfe='52210203482332000229550010000218421468894126',ft.ft_especie='SPED' where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
+update sft010 ft set ft.ft_chvnfe='52210302745323000210550010000461221846603744',ft.ft_especie='SPED' where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
 select f3.d_e_l_e_t_,f3.f3_nfiscal,f3.f3_codrsef,f3.f3_chvnfe,f3.f3_especie,f3_observ,f3_dtcanc,f3.* from sf3010 f3 where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
 update sf3010 f3 set f3_observ=' ',f3_dtcanc=' ',f3.f3_codrsef=100 where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
 --update sf3010 f3 set f3.d_e_l_e_t_=' ' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
-update sf3010 f3 set f3.f3_chvnfe='52210203482332000229550010000218421468894126',f3.f3_especie='SPED' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
+update sf3010 f3 set f3.f3_chvnfe='52210302745323000210550010000461221846603744',f3.f3_especie='SPED' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
 
-SELECT spd.doc_id,spd.doc_chv,spd.* from SPED.sped050 spd where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
-update SPED.sped050 spd set spd.doc_chv='52210203482332000229550010000218421468894126',NFE_PROT='152213809713458',CNPJDEST='02805757696',spd.tipo_canc='0',VERSAO='4.00',DATE_ENFE='20210208',TIME_ENFE='14:58:14' where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+SELECT spd.doc_id,spd.doc_chv,NFE_PROT,CNPJDEST,tipo_canc,VERSAO,DATE_ENFE,TIME_ENFE,spd.* from SPED.sped050 spd where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+update SPED.sped050 spd set spd.doc_chv='52210302745323000210550010000461221846603744',NFE_PROT='152213870584824'/*,CNPJDEST='02805757696',spd.tipo_canc='0'/*,VERSAO='4.00,DATE_ENFE='20210208',TIME_ENFE='14:58:14'*/ where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 update SPED.sped050 set STATUS='6',STATUSCANC='0' where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 SELECT * from SPED.sped054 where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
 update SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and CSTAT_SEFR <> '100' and D_E_L_E_T_=' '; 
-update SPED.sped054 set CSTAT_SEFR='100',XMOT_SEFR='Autorizado o uso da NF-e',NFE_PROT='152213809713458' where ID_ENT='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV = '52210203482332000229550010000218421468894126';
-update SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where ID_ENT='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV <> '52201203482332000229550010000216021615893948';
+update SPED.sped054 set CSTAT_SEFR='100',XMOT_SEFR='Autorizado o uso da NF-e',NFE_PROT='152213870584824' where ID_ENT='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV = '52210302745323000210550010000461221846603744';
+update SPED.sped054 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where ID_ENT='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ' and NFE_CHV <> '52210302745323000210550010000461221846603744';
 
 
 --==================== SAIDA ====================
