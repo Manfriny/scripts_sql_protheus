@@ -1,2 +1,2 @@
-select gw1_sit,a.* from gw1010 a where gw1_filial='0301' and GW1_NRDC in ('110943') and GW1_SERDC='3'; --numero da nota fiscal
-update gw1010 set gw1_sit='4' where gw1_filial='0301' and GW1_NRDC in ('110943') and GW1_SERDC='3';
+select gw1.gw1_sit,gw1.* from gw1010 gw1 where gw1.gw1_filial='0301' and gw1.gw1_nrdc in ('090085') and gw1.gw1_serdc='5'; --numero da nota fiscal
+update gw1010 gw1 set gw1.gw1_sit='4' where gw1.gw1_filial='0301' and gw1.gw1_nrdc in ('090085') and gw1.gw1_serdc='5'; --numero da nota fiscal

@@ -1,46 +1,77 @@
-define Filial='0301';
-define Nota='099972';
-define Serie='3';
+--==================== ENTIDADES ====================
+--000001-0301 / 000013-0302 / 000040-0303 / 000002-0401 / 000004-0402
+--==================== CNPJS ========================
+--0301 - 03482332000148 (03.482.332/0001-48)
+--0302 - 03482332000229 (03.482.332/0002-29)
+--0303 - 03482332000300 (03.482.332/0003-00)
+--0401 - 02745323000130 (02.745.323/0001-30)
+--0402 - 02745323000210 (02.745.323/0002-10)
+--===================================================
 
-select a.d_e_l_e_t_,a.f1_doc,f1_serie,a.f1_filial,a.f1_emissao,a.f1_chvnfe,a.* from sf1010 a where a.f1_filial='0301' and a.f1_doc in ('078231') order by a.f1_doc;
+define f1filial='0302';
+define f1doc= '029282';
+define f1serie='1';
+define f1ent = '000013';
 
---ENTRADA
-select a.d_e_l_e_t_,a.* from SF1010 a where F1_FILIAL=&Filial and F1_DOC='&Nota' and F1_SERIE='&Serie';
-select a.d_e_l_e_t_,a.* from SD1010 a where D1_FILIAL='&Filial' and D1_DOC='&Nota' and D1_SERIE='&Serie';
-select a.d_e_l_e_t_,a.* from SFT010 a where FT_FILIAL='&Filial' and FT_NFISCAL='&Nota' and FT_SERIE='&Serie';
-update SFT010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where FT_FILIAL='&Filial' and FT_NFISCAL='&Nota' and FT_SERIE='&Serie';
-select a.d_e_l_e_t_,a.f3_codrsef,a.* from SF3010 a where F3_FILIAL='&Filial' and F3_NFISCAL='&Nota' and F3_SERIE='&Serie';
-update SF3010 set d_e_l_e_t_='*' where F3_FILIAL='&Filial' and F3_NFISCAL='&Nota' and F3_SERIE='&Serie';
-select a.d_e_l_e_t_,a.* from SPED.SPED050 a where NFE_ID like '%&Serie%&Nota%';
+define f2filial='0302';
+define f2doc= '029282';
+define f2serie='1';
+define f2ent = '000013';
 
-select * from SPED.SPED050 where NFE_ID like '%'||'&Serie'||'%'||'&Nota'||'%' and D_E_L_E_T_=' ';
-update SPED.SPED050 set D_E_L_E_T_='*',R_E_C_D_E_L_=R_E_C_N_O_ where NFE_ID like '%'||'&Serie'||'%'||'&Nota'||'%' and D_E_L_E_T_=' ';
+SELECT f1.d_e_l_e_t_,f1.f1_doc,f1.f1_chvnfe,f1.f1_especie,f1.f1_fornece,f1_loja,f1.* from sf1010 f1 where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
+update sf1010 f1 set f1.d_e_l_e_t_='*',f1.r_e_c_d_e_l_=f1.r_e_c_n_o_,f1.f1_chvnfe=' ' where f1.f1_filial='&f1filial' and f1.f1_doc='&f1doc' and f1.f1_serie='&f1serie';
 
-select * from SPED.SPED054 where NFE_ID like '%'||'&Serie'||'%'||'&Nota'||'%' and D_E_L_E_T_=' ';
-update SPED.SPED054 set D_E_L_E_T_='*',R_E_C_D_E_L_=R_E_C_N_O_ where NFE_ID like '%'||'&Serie'||'%'||'&Nota'||'%' and D_E_L_E_T_=' ';
+SELECT d1.d_e_l_e_t_,d1.d1_doc,d1.* from sd1010 d1 where d1.d1_filial='&f1filial' and d1.d1_doc='&f1doc' and d1.d1_serie='&f1serie';
+update sd1010 d1 set d1.d_e_l_e_t_='*',d1.r_e_c_d_e_l_=d1.r_e_c_n_o_ where d1.d1_filial='&f1filial' and d1.d1_doc='&f1doc' and d1.d1_serie='&f1serie';
 
+SELECT ft.d_e_l_e_t_,ft.ft_nfiscal,ft.ft_chvnfe,ft.ft_especie,FT_OBSERV,ft_dtcanc,ft.* from sft010 ft where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
+update sft010 ft set ft.ft_chvnfe=' ',ft.ft_observ='NF CANCELADA',ft.ft_dtcanc='20210319' where ft.ft_filial='&f1filial' and ft.ft_nfiscal='&f1doc' and ft.ft_serie='&f1serie' and ft.ft_tipomov='E';
 
+SELECT f3.d_e_l_e_t_,f3.f3_nfiscal,f3.f3_codrsef,f3.f3_chvnfe,f3.f3_especie,f3_observ,f3_dtcanc,f3.* from sf3010 f3 where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
+update sf3010 f3 set f3.f3_codrsef='102',f3.f3_chvnfe=' ',f3.f3_observ='NF CANCELADA',f3.f3_dtcanc='20210319' where f3.f3_filial='&f1filial' and f3.f3_nfiscal='&f1doc' and f3.f3_serie='&f1serie' and f3.f3_cfo between '1000' and '3000';
 
+SELECT spd.nfe_prot,spd.status,spd.statuscanc,spd.tipo_canc,spd.date_enfe,spd.time_enfe,spd.* from SPED.sped050 spd where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+--aqui nao vai precisar mexer, pois gera quando inutiliza
+--update SPED.sped050 spd set spd.nfe_prot='152213775163670',spd.tipo_canc='2',spd.status=7,spd.statuscanc=2,spd.date_enfe='20210126',spd.time_enfe='14:40:08' where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+
+SELECT * from SPED.sped054 spd where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+--aqui nao vai precisar mexer, pois gera quando inutiliza (fica o erro da rejeição e a inutilização
+update SPED.sped054 spd 
+set spd.cstat_sefr='102',spd.xmot_sefr='Inutilização de número homologado',spd.dtrec_sefr='20210126',
+spd.hrrec_sefr='15:55:31',spd.nfe_prot='152213775163670',spd.dtver_lotp=' ',spd.hrver_lotp=' '
+where id_ent='&f1ent' and NFE_ID like '%'||'&f1serie'||'%'||'&f1doc'||'%' and D_E_L_E_T_=' ';
+
+--=================================================
 --SAIDA
-select F2_FIMP,F2_STATUS,f2.D_E_L_E_T_,f2.F2_FILIAL,f2.F2_DOC,f2.f2_chvnfe,f2.* from SF2010 f2 where F2_FILIAL='&Filial' and F2_DOC='&Nota' and F2_SERIE=&Serie;
---update sf2010 set f2_fimp=' ' where F2_FILIAL='&Filial' and F2_DOC='&Nota' and F2_SERIE='&Serie';
-select d2.D_E_L_E_T_,d2.D2_FILIAL,d2.D2_DOC,d2.* from SD2010 d2 where D2_FILIAL='&Filial' and D2_DOC='&Nota' and D2_SERIE=&Serie;
+--=================================================
+SELECT f2.d_e_l_e_t_,f2.f2_doc,f2.f2_chvnfe,f2.f2_especie,f2.f2_cliente,f2_loja,f2.* from sf2010 f2 where f2.f2_filial='&f2filial' and f2.f2_doc='&f2doc' and f2.f2_serie='&f2serie';
+update sf2010 f2 set f2.d_e_l_e_t_='*',f2.r_e_c_d_e_l_=f2.r_e_c_n_o_,f2.f2_chvnfe=' ' where f2.f2_filial='&f2filial' and f2.f2_doc='&f2doc' and f2.f2_serie='&f2serie';
+update sf2010 f2 set f2.d_e_l_e_t_='*',f2.r_e_c_d_e_l_=f2.r_e_c_n_o_ where f2.f2_filial='&f2filial' and f2.f2_doc='&f2doc' and f2.f2_serie='&f2serie';
 
-select ft.D_E_L_E_T_,ft.FT_NFISCAL,ft.* from SFT010 ft where FT_FILIAL='&Filial' and FT_NFISCAL='&Nota' and FT_SERIE='&Serie';
---update sft010 set d_e_l_e_t_='*',r_e_c_d_e_l_=r_e_c_n_o_ where FT_FILIAL='&Filial' and FT_NFISCAL='&Nota' and FT_SERIE='&Serie';
-select f3.D_E_L_E_T_,f3.F3_FILIAL,f3.F3_NFISCAL,f3.F3_CODRSEF,f3.* from SF3010 f3 where F3_FILIAL='&Filial' and F3_NFISCAL='&Nota' and F3_SERIE='&Serie';
---update sf3010 set d_e_l_e_t_='*' where F3_FILIAL='&Filial' and F3_NFISCAL='&Nota' and F3_SERIE='&Serie';
+SELECT d2.d_e_l_e_t_,d2.d2_doc,d2.* from sd2010 d2 where d2.d2_filial='&f1filial' and d2.d2_doc='&f1doc' and d2.d2_serie='&f1serie';
+update sd2010 d2 set d2.d_e_l_e_t_='*',d2.r_e_c_d_e_l_=d2.r_e_c_n_o_ where d2.d2_filial='&f1filial' and d2.d2_doc='&f1doc' and d2.d2_serie='&f1serie';
 
+SELECT ft.d_e_l_e_t_,ft.ft_nfiscal,ft.ft_chvnfe,ft.ft_especie,FT_OBSERV,ft_dtcanc,ft.* from sft010 ft where ft.ft_filial='&f2filial' and ft.ft_nfiscal='&f2doc' and ft.ft_serie='&f2serie' and ft.ft_tipomov='S';
+update sft010 ft set ft.ft_chvnfe=' ',ft.ft_observ='NF CANCELADA',ft.ft_dtcanc='20210319' where ft.ft_filial='&f2filial' and ft.ft_nfiscal='&f2doc' and ft.ft_serie='&f2serie' and ft.ft_tipomov='S';
+update sft010 ft set ft.d_e_l_e_t_='*',ft.r_e_c_d_e_l_=ft.r_e_c_n_o_ where ft.ft_filial='&f2filial' and ft.ft_nfiscal='&f2doc' and ft.ft_serie='&f2serie' and ft.ft_tipomov='S';
 
-select sped.D_E_L_E_T_,sped.* from SPED.SPED050 sped where NFE_ID like '%&Serie%&Nota%' and D_E_L_E_T_=' ';
---update SPED.SPED050 set D_E_L_E_T_='*',R_E_C_D_E_L_=R_E_C_N_O_ where NFE_ID like '%'||'&Serie'||'%'||'&Nota'||'%' and D_E_L_E_T_=' ';
---update SPED.SPED050 set d_e_l_e_t_=' ',r_e_c_d_e_l_=0 where r_e_c_n_o_=222152;
+SELECT f3.d_e_l_e_t_,f3.f3_nfiscal,f3.f3_codrsef,f3.f3_chvnfe,f3.f3_especie,f3_observ,f3_dtcanc,f3.* from sf3010 f3 where f3.f3_filial='&f2filial' and f3.f3_nfiscal='&f2doc' and f3.f3_serie='&f2serie' and f3.f3_cfo between '5000' and '7999';
+update sf3010 f3 set f3.f3_codrsef='102',f3.f3_chvnfe=' ',f3.f3_observ='NF CANCELADA',f3.f3_dtcanc='20210319' where f3.f3_filial='&f2filial' and f3.f3_nfiscal='&f2doc' and f3.f3_serie='&f2serie' and f3.f3_cfo between '5000' and '7999';
+update sf3010 f3 set f3.d_e_l_e_t_='*' where f3.f3_filial='&f2filial' and f3.f3_nfiscal='&f2doc' and f3.f3_serie='&f2serie' and f3.f3_cfo between '5000' and '7999';
 
+SELECT spd.nfe_prot,spd.status,spd.statuscanc,spd.tipo_canc,spd.date_enfe,spd.time_enfe,spd.* from SPED.sped050 spd where id_ent='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
+--aqui nao vai precisar mexer, pois gera quando inutiliza
+--update SPED.sped050 spd set spd.nfe_prot='152213775163670',spd.tipo_canc='2',spd.status=7,spd.statuscanc=2,spd.date_enfe='20210126',spd.time_enfe='14:40:08' where id_ent='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
+update SPED.sped050 spd set spd.d_e_l_e_t_='*',spd.r_e_c_d_e_l_=spd.r_e_c_n_o_ where id_ent='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
 
-select d_e_l_e_t_,sped.* from SPED.SPED054 sped where NFE_ID like '%'||'&Serie'||'%'||'&Nota'||'%' and D_E_L_E_T_=' ';
---update SPED.SPED054 set D_E_L_E_T_='*',R_E_C_D_E_L_=R_E_C_N_O_ where NFE_ID like '%'||'&Serie'||'%'||'&Nota'||'%' and D_E_L_E_T_=' ';
---update SPED.SPED054 set D_E_L_E_T_=' ',R_E_C_D_E_L_=0 where r_e_c_n_o_=286671;
+SELECT * from SPED.sped054 spd where id_ent='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
+--aqui nao vai precisar mexer, pois gera quando inutiliza (fica o erro da rejeição e a inutilização
+update SPED.sped054 spd 
+set spd.cstat_sefr='102',spd.xmot_sefr='Inutilização de número homologado',spd.dtrec_sefr='20210126',
+spd.hrrec_sefr='15:55:31',spd.nfe_prot='152213775163670',spd.dtver_lotp=' ',spd.hrver_lotp=' '
+where id_ent='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
 
+update SPED.sped054 spd set spd.d_e_l_e_t_='*',spd.r_e_c_d_e_l_=spd.r_e_c_n_o_ where id_ent='&f2ent' and NFE_ID like '%'||'&f2serie'||'%'||'&f2doc'||'%' and D_E_L_E_T_=' ';
 --=================================================
 /*
 Campo F2_FIMP – Flag de impressão (http://tdn.totvs.com/pages/viewpage.action?pageId=189317260)
@@ -60,9 +91,3 @@ Campo F2_STATUS – Status Canc. NFe (registrado apenas quando se faz uso do FATJO
 
 --=================================================
 http://tdn.totvs.com/pages/releaseview.action?pageId=272154294
-
-
-
-
-
-
